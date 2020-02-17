@@ -41,7 +41,7 @@ Import `ElasticsearchModule`:
 ```typescript
 @Module({
   imports: [ElasticsearchModule.register({
-    node: 'localhost:9200',
+    node: 'http://localhost:9200',
   })],
   providers: [...],
 })
@@ -66,7 +66,7 @@ Quite often you might want to asynchronously pass your module options instead of
 ```typescript
 ElasticsearchModule.registerAsync({
   useFactory: () => ({
-    node: 'localhost:9200'
+    node: 'http://localhost:9200'
   })
 });
 ```
@@ -97,7 +97,7 @@ Above construction will instantiate `ElasticsearchConfigService` inside `Elastic
 class ElasticsearchConfigService implements ElasticsearchOptionsFactory {
   createElasticsearchOptions(): ElasticsearchModuleOptions {
     return {
-      node: 'localhost:9200'
+      node: 'http://localhost:9200'
     };
   }
 }
